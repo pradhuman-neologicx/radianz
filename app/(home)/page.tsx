@@ -152,7 +152,7 @@ export default function Home() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <Image
-            src="/hero-bg.png"
+            src="/tylijura-ai-generated-9801291_1920.jpg"
             alt="Hero Background"
             fill
             className="object-cover object-center"
