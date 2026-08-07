@@ -174,7 +174,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pb-5 lg:pb-0"
           >
             <Link
               href="/book"
@@ -207,14 +207,14 @@ export default function Home() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-24 bg-primary/5 relative">
+      <section className="pb-10 lg:py-24 bg-primary/5 relative">
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: '-100px' }}
-            className="grid lg:grid-cols-2 gap-16 lg:gap-12 items-center"
+            className="grid lg:grid-cols-2 lg:gap-12 items-center"
           >
             {/* Left: Images */}
             <div className="relative max-w-md mx-auto lg:mx-0 lg:max-w-none mb-12 lg:mb-0 aspect-[4/5] lg:aspect-[3/4] lg:h-[600px] lg:w-[85%] ml-auto shadow-sm rounded-3xl overflow-hidden">
