@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Phone } from 'lucide-react'
+import Image from 'next/image'
 
 export function ContactSection() {
   return (
@@ -29,11 +30,13 @@ export function ContactSection() {
               Schedule your appointment today and begin a supportive journey toward clarity, resilience, and personal well-being.
             </p>
 
-            <div className="relative max-w-md rounded-3xl overflow-hidden shadow-2xl">
-              <img 
+            <div className="relative max-w-md h-[280px] rounded-3xl overflow-hidden shadow-2xl">
+              <Image 
                 src="/counseling_main.png" 
                 alt="Counseling Session"
-                className="w-full h-[280px] object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
               
               {/* Floating Contact Card */}

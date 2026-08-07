@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, Phone, MapPin, ArrowRight, Clock } from 'lucide-react'
+import { services } from '@/data/services'
 
 const socialLinks = [
   {
@@ -50,7 +51,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <Image src="/logo.png" alt="Radianz Logo" width={120} height={60} className="rounded-xl brightness-200" />
+              <Image src="/logo.png" alt="Radianz Logo" width={120} height={60} className="rounded-xl brightness-200" style={{ width: 'auto' }} />
 
             </Link>
             <p className="text-background/60 text-sm leading-relaxed mb-8 max-w-sm">
@@ -99,17 +100,12 @@ export function Footer() {
           <div className="lg:col-span-3">
             <h4 className="text-sm font-bold text-background uppercase tracking-widest mb-6">Our Services</h4>
             <ul className="space-y-4">
-              {[
-                'Career & Academic Counseling',
-                'Personal & Relationship',
-                'Professional Growth',
-                'Life Transitions',
-              ].map((service) => (
-                <li key={service}>
-                  <span className="text-background/50 text-sm flex items-center gap-2 group cursor-default">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
-                    {service}
-                  </span>
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link href={`/services/${service.slug}`} className="text-background/50 hover:text-primary text-sm flex items-center gap-2 group transition-colors duration-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary shrink-0 transition-colors duration-300" />
+                    {service.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -150,39 +146,26 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Newsletter Strip */}
-        <div className="border-t border-background/10 pt-10 mb-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h4 className="text-lg font-bold text-background mb-1">Stay Updated</h4>
-              <p className="text-sm text-background/50">Subscribe for wellness tips, articles, and updates.</p>
-            </div>
-            <div className="flex w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 md:w-72 px-5 py-3 bg-background/5 border border-background/10 rounded-l-xl text-sm text-background placeholder:text-background/30 focus:outline-none focus:border-primary/50 transition-colors"
-              />
-              <button className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-r-xl font-medium text-sm transition-colors flex items-center gap-2 shrink-0">
-                Subscribe <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div className="border-t border-background/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-background/40 text-sm text-center md:text-left">
               &copy; {currentYear} Radianz Counseling. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-background/40">
+            <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-background/40">
               <Link href="#" className="hover:text-primary transition-colors duration-300">
                 Privacy Policy
               </Link>
               <Link href="#" className="hover:text-primary transition-colors duration-300">
                 Terms of Service
               </Link>
+              <div className="hidden md:block w-px h-4 bg-background/20" />
+              <div className="flex items-center gap-2">
+                <span>Powered By</span>
+                <a href="https://neologicx.com/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity flex items-center">
+                  <Image src="/neo_logo.png" alt="Neologicx" width={100} height={24} className="object-contain" style={{ height: '24px', width: 'auto' }} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

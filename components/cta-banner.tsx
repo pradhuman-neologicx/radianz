@@ -1,8 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Phone, ArrowUp } from 'lucide-react'
+import { Phone, ArrowUp, Calendar } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function CtaBanner() {
   const scrollToTop = () => {
@@ -42,9 +43,10 @@ export function CtaBanner() {
 
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-[#e8a38a] hover:bg-[#d8937a] text-white rounded-full font-semibold transition-colors shadow-lg"
+                href="/book"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#e8a38a] hover:bg-[#d8937a] text-white rounded-full font-semibold transition-colors shadow-lg group"
               >
+                <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 Book a Session
               </Link>
 
@@ -65,10 +67,12 @@ export function CtaBanner() {
           >
             {/* Using a neat circular/rounded wrapper since a perfect transparent cutout isn't available by default */}
             <div className="relative w-[380px] h-[380px] rounded-full overflow-hidden border-8 border-white/10 shadow-2xl">
-              <img
+              <Image
                 src="/counseling_main.png"
                 alt="Professional Counselor"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 380px"
+                className="object-cover"
               />
             </div>
           </motion.div>

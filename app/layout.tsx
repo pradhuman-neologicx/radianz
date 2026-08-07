@@ -2,7 +2,11 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
+// Use environment variable for the main domain, fallback to Netlify for demo, and localhost for dev
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.URL || 'https://radianz.netlify.app'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'Radianz - Professional Online Counseling Services',
   description: 'Connect with experienced counselors for mental health support. Confidential, professional online counseling for individuals and couples.',
   keywords: 'counseling, therapy, mental health, online counselor, counseling services, mental health support',
@@ -19,21 +23,8 @@ export const metadata: Metadata = {
     description: 'Connect with experienced counselors for mental health support.',
   },
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
 }
 

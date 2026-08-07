@@ -9,6 +9,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Heart, Users, Brain, Shield, Calendar, ArrowRight, CheckCircle2, Target, Eye, ChevronLeft, ChevronRight, Plus, Minus } from 'lucide-react'
 import { useRef, useState } from 'react'
+import { services } from '@/data/services'
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -116,32 +117,7 @@ export default function Home() {
     }
   }
 
-  const services = [
-    {
-      icon: Heart,
-      title: 'Career & Academic Counseling',
-      description: 'For students and young professionals facing career decisions and academic stress.',
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600'
-    },
-    {
-      icon: Users,
-      title: 'Personal & Relationship',
-      description: 'For individuals dealing with personal, emotional, or relationship concerns.',
-      image: 'https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=600'
-    },
-    {
-      icon: Brain,
-      title: 'Professional Growth',
-      description: 'For professionals seeking clarity, growth, and work-life balance.',
-      image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=600'
-    },
-    {
-      icon: Shield,
-      title: 'Life Transitions',
-      description: 'For young adults navigating life decisions and personal challenges.',
-      image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=600'
-    },
-  ]
+
 
   return (
     <main className="min-h-screen bg-background">
@@ -201,7 +177,7 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
-              href="/contact"
+              href="/book"
               className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2"
             >
               <Calendar className="w-5 h-5" />
@@ -241,15 +217,20 @@ export default function Home() {
             className="grid lg:grid-cols-2 gap-16 lg:gap-12 items-center"
           >
             {/* Left: Images */}
-            <div className="relative max-w-md mx-auto lg:mx-0 lg:max-w-none mb-12 lg:mb-0">
-              <img
+            <div className="relative max-w-md mx-auto lg:mx-0 lg:max-w-none mb-12 lg:mb-0 aspect-[4/5] lg:aspect-[3/4] lg:h-[600px] lg:w-[85%] ml-auto shadow-sm rounded-3xl overflow-hidden">
+              <Image
                 src="/counseling_main.png"
                 alt="Counseling session"
-                className="rounded-3xl w-full object-cover aspect-[4/5] lg:aspect-[3/4] lg:h-[600px] lg:w-[85%] ml-auto shadow-sm"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
-              <img
+              <Image
                 src="/counseling_small.png"
                 alt="Supportive listening"
+                width={300}
+                height={300}
                 className="absolute -bottom-8 -left-6 sm:-left-12 rounded-3xl w-2/3 border-[10px] border-[#fdf9f7] object-cover aspect-square shadow-xl"
               />
             </div>
@@ -371,29 +352,39 @@ export default function Home() {
               ref={sliderRef}
               className="flex overflow-x-auto gap-12 pb-10 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
             >
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="snap-start shrink-0 w-[300px] sm:w-[350px] flex flex-col group cursor-pointer bg-white rounded-3xl overflow-hidden border border-border/50 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
-                >
-                  <div className="w-full h-[220px] relative overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                    />
-                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500" />
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+              {services.map((service, index) => {
+                const Icon = service.icon
+                return (
+                  <Link
+                    key={index}
+                    href={`/services/${service.slug}`}
+                    className="snap-start shrink-0 w-[300px] sm:w-[350px] flex flex-col group cursor-pointer bg-white rounded-3xl overflow-hidden border border-border/50 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
+                  >
+                    <div className="w-full h-[220px] relative overflow-hidden bg-primary/5 flex items-center justify-center">
+                      {service.image ? (
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 33vw"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                        />
+                      ) : (
+                        <Icon className="w-16 h-16 text-primary/40 group-hover:scale-110 transition-transform duration-700 ease-in-out" strokeWidth={1} />
+                      )}
+                      <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500" />
+                    </div>
+                    <div className="p-8">
+                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                        {service.shortDesc}
+                      </p>
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
           </motion.div>
         </div>
@@ -428,67 +419,92 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="relative"
           >
-            {[
-              {
-                step: '01',
-                icon: '📋',
-                title: 'Book Your Consultation',
-                desc: 'Book a confidential consultation online or by phone at a time that suits you.',
-                image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400',
-                bullet: 'We ensure a smooth start to your journey',
-              },
-              {
-                step: '02',
-                icon: '🧠',
-                title: 'Personalized Assessment',
-                desc: 'We take time to understand your concerns, goals, and experiences.',
-                image: 'https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=400',
-                bullet: 'We create a tailored therapy plan design',
-              },
-              {
-                step: '03',
-                icon: '🌱',
-                title: 'Ongoing Support & Progress',
-                desc: 'Through regular sessions and practical strategies, we help you build resilience.',
-                image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=400',
-                bullet: 'Achieve lasting emotional well-being',
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="group bg-white rounded-3xl p-8 border border-border/40 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-2 flex flex-col"
-              >
-                {/* Top Row: Icon + Step */}
-                <div className="flex items-center justify-between mb-8">
-                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl">
-                    {item.icon}
+            {/* Connecting Line (desktop only) */}
+            <div className="hidden md:block absolute top-[60px] left-[16.66%] right-[16.66%] h-[2px] z-0">
+              <div className="w-full h-full border-t-2 border-dashed border-primary/25" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+              {[
+                {
+                  step: '01',
+                  icon: Calendar,
+                  title: 'Book Your Consultation',
+                  desc: 'Book a confidential consultation online or by phone at a time that suits you.',
+                  image: '/book.png',
+                  bullet: 'We ensure a smooth start to your journey',
+                  accent: 'from-primary/80 to-primary/40',
+                },
+                {
+                  step: '02',
+                  icon: Target,
+                  title: 'Personalized Assessment',
+                  desc: 'We take time to understand your concerns, goals, and experiences.',
+                  image: '/book-2.png',
+                  bullet: 'We create a tailored therapy plan design',
+                  accent: 'from-primary/70 to-primary/30',
+                },
+                {
+                  step: '03',
+                  icon: Heart,
+                  title: 'Ongoing Support & Progress',
+                  desc: 'Through regular sessions and practical strategies, we help you build resilience.',
+                  image: '/book-3.png',
+                  bullet: 'Achieve lasting emotional well-being',
+                  accent: 'from-primary/60 to-primary/20',
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="relative flex flex-col items-center"
+                >
+                  {/* Step Circle */}
+                  <div className="relative z-10 w-[120px] h-[120px] rounded-full bg-white border-2 border-primary/20 flex items-center justify-center mb-8 shadow-lg shadow-primary/10">
+                    <div className="w-[96px] h-[96px] rounded-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                      <item.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
+                    </div>
+                    {/* Step Number Badge */}
+                    <span className="absolute -top-1 -right-1 w-9 h-9 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center shadow-md">
+                      {item.step}
+                    </span>
                   </div>
-                  <span className="text-sm font-bold text-muted-foreground tracking-wider">Step {item.step}</span>
-                </div>
 
-                {/* Title & Description */}
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">{item.desc}</p>
+                  {/* Card */}
+                  <div className="group w-full bg-white rounded-3xl overflow-hidden border border-border/40 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-1">
+                    {/* Image with Gradient Overlay */}
+                    <div className="relative h-[180px] overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${item.accent} opacity-20 group-hover:opacity-10 transition-opacity duration-500`} />
+                    </div>
 
-                {/* Small Image */}
-                <div className="rounded-2xl overflow-hidden mb-6 h-[140px]">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
+                    {/* Content */}
+                    <div className="p-7">
+                      <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                        {item.desc}
+                      </p>
 
-                {/* Bullet Point */}
-                <div className="mt-auto flex items-start gap-3 pt-4 border-t border-border/30">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                  <p className="text-sm text-muted-foreground">{item.bullet}</p>
-                </div>
-              </motion.div>
-            ))}
+                      {/* Bullet */}
+                      <div className="flex items-center gap-3 pt-4 border-t border-border/30">
+                        <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                        <p className="text-sm font-medium text-foreground/80">{item.bullet}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -580,10 +596,12 @@ export default function Home() {
               className="lg:col-span-5 relative"
             >
               <div className="aspect-[3/4] rounded-[2rem] overflow-hidden shadow-sm relative border-[8px] border-white/50">
-                <img
-                  src="/counseling_main.png"
-                  alt="Counseling Session"
-                  className="w-full h-full object-cover"
+                <Image
+                  src="/counseling_small.png"
+                  alt="Supportive listening"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  className="object-cover"
                 />
               </div>
             </motion.div>
@@ -667,11 +685,13 @@ export default function Home() {
               viewport={{ once: true, margin: '-100px' }}
               className="flex justify-center lg:justify-end"
             >
-              <div className="w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-[6px] border-primary/10">
-                <img
-                  src="/counseling_main.png"
+              <div className="relative w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-[6px] border-primary/10">
+                <Image
+                  src="/aditi.png"
                   alt="Dr. Aditi Mathur"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover"
                 />
               </div>
             </motion.div>
@@ -722,11 +742,13 @@ export default function Home() {
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-10">
                 We understand that seeking therapy is an important step. Explore common questions about appointments, privacy, and treatment approaches.
               </p>
-              <div className="rounded-3xl overflow-hidden shadow-sm border border-border/30">
-                <img
+              <div className="relative w-full h-[350px] rounded-3xl overflow-hidden shadow-sm border border-border/30">
+                <Image
                   src="/counseling_small.png"
                   alt="Therapy session"
-                  className="w-full h-[350px] object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
             </motion.div>

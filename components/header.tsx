@@ -45,7 +45,8 @@ export function Header() {
               alt="Radianz Logo" 
               width={180} 
               height={60} 
-              className={`h-14 sm:h-16 w-auto transition-all duration-500 ${!scrolled ? 'brightness-0 invert' : ''}`} 
+              className={`h-14 sm:h-16 transition-all duration-500 ${!scrolled ? 'brightness-0 invert' : ''}`} 
+              style={{ width: 'auto' }}
               priority 
             />
           </Link>
@@ -74,7 +75,7 @@ export function Header() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
             <Link
-              href="/contact"
+              href="/book"
               className={`px-4 py-2 flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-all duration-500 ${scrolled
                   ? cn(buttonVariants({ variant: "default" }))
                   : 'bg-primary/20 text-primary-foreground backdrop-blur-sm border border-primary/30 hover:bg-primary/30'
@@ -121,7 +122,7 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/book"
               className={cn(buttonVariants({ variant: "default" }), "mt-2 w-full flex items-center justify-center gap-2 mx-auto max-w-[calc(100%-2rem)]")}
               onClick={() => setMobileMenuOpen(false)}
             >

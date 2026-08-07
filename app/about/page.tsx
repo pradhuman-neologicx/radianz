@@ -1,74 +1,95 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Award, Users, Heart, Target } from 'lucide-react'
+import { PageHeader } from '@/components/page-header'
+import { CtaBanner } from '@/components/cta-banner'
+import Image from 'next/image'
+import Link from 'next/link'
+import {
+  Heart,
+  Users,
+  Target,
+  Eye,
+  Ear,
+  Brain,
+  Compass,
+  Shield,
+  GraduationCap,
+  Briefcase,
+  Sparkles,
+  UserCircle,
+  CheckCircle2,
+  ArrowRight,
+  BookOpen,
+  Award,
+} from 'lucide-react'
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-}
-
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
     },
   },
 }
 
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+}
+
 export default function About() {
-  const values = [
+  const approach = [
     {
-      icon: Heart,
-      title: 'Compassion',
-      description: 'We approach every client with genuine care and empathy, understanding the courage it takes to seek help.',
+      icon: Ear,
+      title: 'Active Listening & Empathy',
+      desc: 'We create a space where you feel truly heard and understood without judgment.',
     },
     {
-      icon: Users,
-      title: 'Connection',
-      description: 'Building meaningful therapeutic relationships is at the heart of effective counseling and healing.',
+      icon: Brain,
+      title: 'Evidence-Based Techniques',
+      desc: 'Our methods are grounded in proven psychological research and practices.',
     },
     {
-      icon: Target,
-      title: 'Growth',
-      description: 'We empower clients to achieve personal growth and develop sustainable strategies for lasting change.',
+      icon: Compass,
+      title: 'Tailored Guidance',
+      desc: 'Career and life guidance customized to your unique needs and goals.',
     },
     {
-      icon: Award,
-      title: 'Excellence',
-      description: 'Our team maintains the highest standards of professional practice and continuous learning.',
+      icon: Shield,
+      title: 'Safe & Confidential',
+      desc: 'A supportive, confidential environment where you can openly express yourself.',
     },
   ]
 
-  const team = [
+  const whoCanBenefit = [
     {
-      name: 'Dr. Sarah Mitchell',
-      role: 'Clinical Director & Licensed Therapist',
-      bio: 'Ph.D. in Clinical Psychology with 15+ years of experience in individual and couples therapy.',
+      icon: GraduationCap,
+      title: 'Students',
+      desc: 'Facing career confusion or academic stress and needing clarity on the path ahead.',
     },
     {
-      name: 'James Anderson',
-      role: 'Senior Counselor',
-      bio: 'M.S. in Counseling Psychology specializing in anxiety, depression, and life transitions.',
+      icon: Sparkles,
+      title: 'Young Adults',
+      desc: 'Navigating life decisions, personal challenges, and the transition to adulthood.',
     },
     {
-      name: 'Maya Patel',
-      role: 'Licensed Professional Counselor',
-      bio: 'Specialized in trauma-informed care and cultural competency in mental health services.',
+      icon: Briefcase,
+      title: 'Professionals',
+      desc: 'Dealing with work stress, career transitions, or seeking work-life balance.',
     },
     {
-      name: 'Michael Chen',
-      role: 'Family Therapist',
-      bio: 'Expert in family dynamics and relationship counseling with 10 years of clinical experience.',
+      icon: UserCircle,
+      title: 'Individuals',
+      desc: 'Seeking emotional clarity, personal growth, and a deeper understanding of self.',
     },
   ]
 
@@ -76,83 +97,107 @@ export default function About() {
     <main className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/10 to-accent/5">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl sm:text-6xl font-bold text-foreground mb-6 text-balance"
-          >
-            About Radianz
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-xl text-gray-600 text-balance leading-relaxed"
-          >
-            Empowering lives through compassionate, professional counseling and mental health support.
-          </motion.p>
-        </div>
-      </section>
+      {/* Page Header */}
+      <PageHeader
+        badge="About Us"
+        title="About"
+        titleAccent="Radianz"
+        description="A counselling and guidance initiative dedicated to supporting individuals in navigating life's personal, emotional, and career challenges with clarity and confidence."
+      />
 
-      {/* Our Story */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* Who We Are */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Image Side */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: '-100px' }}
+              className="relative"
             >
-              <h2 className="text-4xl font-bold text-foreground mb-6">Our Story</h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Radianz was founded on the belief that mental health care should be accessible, professional, and deeply compassionate. We recognized a gap in the market for authentic, online counseling that doesn&apos;t compromise on quality.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Since our inception, we&apos;ve been committed to connecting individuals and couples with licensed therapists who genuinely care about their wellbeing and personal growth. Every session is designed to be a safe space for healing and transformation.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Today, Radianz serves hundreds of clients seeking professional mental health support in a confidential, convenient online environment.
-              </p>
+              <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl">
+                <Image
+                  src="/counseling_main.png"
+                  alt="Counselling session"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              </div>
+              {/* Floating Stats Card */}
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-border/40 hidden sm:block">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Heart className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-foreground">100+</p>
+                    <p className="text-sm text-muted-foreground">Lives Supported</p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
+            {/* Text Side */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: '-100px' }}
-              className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20"
             >
-              <div className="space-y-4">
-                <div>
-                  <div className="text-4xl font-bold text-primary">500+</div>
-                  <p className="text-gray-600">Clients Supported</p>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-primary">15+</div>
-                  <p className="text-gray-600">Years Combined Experience</p>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-primary">4</div>
-                  <p className="text-gray-600">Licensed Therapists</p>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-primary">98%</div>
-                  <p className="text-gray-600">Client Satisfaction Rate</p>
-                </div>
+              <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                Who We Are
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Supporting your journey toward{' '}
+                <span className="text-primary">clarity & confidence</span>
+              </h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Founded by a qualified counselling psychologist with an MA in Counselling and Guidance
+                  and extensive experience in teaching Human Resource Development to postgraduate management
+                  students, our approach combines psychological insight, educational understanding, and
+                  practical life guidance.
+                </p>
+                <p>
+                  With years of experience working closely with young adults and professionals, we understand
+                  the complex pressures of modern life — career uncertainty, emotional stress, relationship
+                  challenges, and decision-making dilemmas.
+                </p>
+                <p>
+                  Our counselling services provide a safe, confidential, and non-judgmental space where
+                  individuals can openly explore their thoughts and feelings.
+                </p>
+              </div>
+
+              {/* Key Points */}
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  'Qualified Counselling Psychologist',
+                  'Evidence-Based Approach',
+                  'Online & In-Person Sessions',
+                  'Confidential Environment',
+                ].map((point, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-sm font-medium text-foreground">{point}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Our Values */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
+      {/* Our Approach */}
+      <section className="py-24 bg-primary/5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -160,50 +205,16 @@ export default function About() {
             viewport={{ once: true, margin: '-100px' }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Our Core Values</h2>
-            <p className="text-xl text-gray-600">What guides us in everything we do</p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {values.map((value, index) => {
-              const Icon = value.icon
-              return (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="p-8 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
-                >
-                  <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
-                </motion.div>
-              )
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Meet Our Team */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-accent/5">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: '-100px' }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Meet Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Experienced, compassionate professionals dedicated to your mental health journey.
+            <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              Our Approach
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              How we <span className="text-primary">help you</span> grow
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              We believe that every individual has the potential to grow when provided with
+              the right support. Our counselling process focuses on:
             </p>
           </motion.div>
 
@@ -212,58 +223,263 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="p-8 bg-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-full mb-4 flex items-center justify-center">
-                  <div className="text-2xl font-bold text-white">{member.name[0]}</div>
+            {approach.map((item, index) => {
+              const Icon = item.icon
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="group bg-white rounded-3xl p-8 border border-border/40 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/15 transition-colors duration-300">
+                    <Icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </motion.div>
+              )
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About the Counsellor */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+            {/* Text Side - 3 cols */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+              className="lg:col-span-3 order-2 lg:order-1"
+            >
+              <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                Meet the Counsellor
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+                Dr. Aditi <span className="text-primary">Mathur</span>
+              </h2>
+              <p className="text-primary font-medium mb-6">
+                Counselling Psychologist & Educator
+              </p>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Dr. Aditi Mathur is a counselling psychologist and educator with a deep commitment to
+                  supporting individuals in their personal and career journeys.
+                </p>
+                <p>
+                  She holds a Master&apos;s degree in Counselling and Guidance (Psychology) and has extensive
+                  experience teaching Human Resource Development to MBA students in a government academic
+                  institution. Through years of interaction with young adults and professionals, she has
+                  developed a strong understanding of the emotional, academic, and career-related challenges
+                  people face today.
+                </p>
+                <p>
+                  Her counselling approach combines psychological understanding, empathy, and practical guidance
+                  to help individuals gain clarity, confidence, and emotional balance. She believes that
+                  counselling is not only about solving problems but also about helping people understand
+                  themselves, discover their strengths, and move forward with purpose.
+                </p>
+              </div>
+
+              {/* Credentials */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                {[
+                  'MA in Counselling & Guidance',
+                  'HRD Educator',
+                  'Counselling Psychologist',
+                ].map((cred, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full"
+                  >
+                    <Award className="w-3.5 h-3.5" />
+                    {cred}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Image Side - 2 cols */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+              className="lg:col-span-2 order-1 lg:order-2"
+            >
+              <div className="relative max-w-sm mx-auto">
+                <div className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-2xl border-[6px] border-primary/10">
+                  <Image
+                    src="/aditi.png"
+                    alt="Dr. Aditi Mathur"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover"
+                  />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-1">{member.name}</h3>
-                <p className="text-primary font-semibold mb-3">{member.role}</p>
-                <p className="text-gray-600 leading-relaxed">{member.bio}</p>
-              </motion.div>
-            ))}
+                {/* Decorative element */}
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-2xl -z-10" />
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/5 rounded-full -z-10" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who Can Benefit */}
+      <section className="py-24 bg-primary/5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: '-100px' }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              Who Can Benefit
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Our counselling is <span className="text-primary">for you</span>
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              Whether you&apos;re a student, a young adult, or a working professional — if you&apos;re
+              looking for clarity, support, and growth, you&apos;re welcome here.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {whoCanBenefit.map((item, index) => {
+              const Icon = item.icon
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="group relative bg-white rounded-3xl p-8 border border-border/40 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+                >
+                  {/* Background number */}
+                  <span className="absolute -bottom-4 -right-2 text-[100px] font-black text-primary/[0.04] leading-none select-none pointer-events-none">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-6 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300">
+                      <Icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              )
+            })}
           </motion.div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 -translate-x-1/2 -translate-y-1/2" />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: '-100px' }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              Our Purpose
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+              Driven by <span className="text-primary">purpose</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Mission */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: '-100px' }}
-              className="p-12 bg-gradient-to-br from-primary/10 to-accent/5 rounded-2xl border border-primary/20"
+              className="group relative bg-white rounded-3xl p-10 border border-border/40 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
             >
-              <h3 className="text-3xl font-bold text-foreground mb-4">Our Mission</h3>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                To provide accessible, professional, and compassionate online counseling that empowers individuals and couples to achieve mental wellness, personal growth, and meaningful relationships.
-              </p>
+              {/* Decorative gradient */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-full" />
+
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+                  <Target className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To help people develop self-awareness, resilience, and clarity, enabling them to
+                  make meaningful decisions and lead more balanced lives. Through both online and
+                  in-person counselling sessions, we aim to make psychological support accessible,
+                  practical, and meaningful.
+                </p>
+                <div className="mt-6 pt-6 border-t border-border/30">
+                  <p className="text-sm font-medium text-foreground/80 italic">
+                    &ldquo;Our goal is simple: to help individuals understand themselves better and
+                    move forward with confidence and emotional well-being.&rdquo;
+                  </p>
+                </div>
+              </div>
             </motion.div>
 
+            {/* Vision */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
               viewport={{ once: true, margin: '-100px' }}
-              className="p-12 bg-gradient-to-br from-accent/10 to-primary/5 rounded-2xl border border-accent/20"
+              className="group relative bg-white rounded-3xl p-10 border border-border/40 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
             >
-              <h3 className="text-3xl font-bold text-foreground mb-4">Our Vision</h3>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                A world where quality mental health support is just a click away, breaking down barriers to accessing care and creating a society where emotional wellbeing is prioritized.
-              </p>
+              {/* Decorative gradient */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-full" />
+
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+                  <Eye className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To create a trusted counselling space where individuals feel supported, understood,
+                  and empowered to grow. We aim to promote mental well-being, self-awareness, and
+                  informed life decisions, helping people lead more balanced and fulfilling lives.
+                </p>
+                <div className="mt-6 pt-6 border-t border-border/30">
+                  <p className="text-sm font-medium text-foreground/80 italic">
+                    &ldquo;Sometimes, the first step toward change is simply having a conversation.&rdquo;
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <CtaBanner />
 
       <Footer />
     </main>
