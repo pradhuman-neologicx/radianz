@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     description: 'Connect with experienced counselors for mental health support.',
   },
   icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
 }
 
