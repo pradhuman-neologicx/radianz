@@ -51,7 +51,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <Image src="/logo.png" alt="Radianz Logo" width={120} height={60} className="rounded-xl brightness-200" style={{ width: 'auto' }} />
+              <Image src="/logo.png" alt="Radianz Logo" width={120} height={60} className="rounded-xl " style={{ width: 'auto' }} />
 
             </Link>
             <p className="text-background/60 text-sm leading-relaxed mb-8 max-w-sm">

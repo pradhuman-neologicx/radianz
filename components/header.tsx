@@ -32,22 +32,22 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${scrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm'
-          : 'bg-transparent border-b border-transparent'
+        ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm'
+        : 'bg-transparent border-b border-transparent'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 sm:h-18 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image 
-              src="/logo.png" 
-              alt="Radianz Logo" 
-              width={180} 
-              height={60} 
-              className={`h-14 sm:h-16 transition-all duration-500 ${!scrolled ? 'brightness-0 invert' : ''}`} 
+            <Image
+              src="/logo.png"
+              alt="Radianz Logo"
+              width={180}
+              height={60}
+              className={`h-14 sm:h-16 transition-all duration-500 `}
               style={{ width: 'auto' }}
-              priority 
+              priority
             />
           </Link>
 
@@ -58,15 +58,14 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={`group relative py-1 text-sm font-medium transition-colors duration-500 ${scrolled
-                    ? 'text-foreground hover:text-primary'
-                    : 'text-primary-foreground/90 hover:text-primary'
+                  ? 'text-foreground hover:text-primary'
+                  : 'text-primary-foreground/90 hover:text-primary'
                   }`}
               >
                 {item.label}
                 <span
-                  className={`absolute left-0 bottom-0 h-0.5 transition-all duration-300 ease-out ${
-                    pathname === item.href ? 'w-full' : 'w-0 group-hover:w-full'
-                  } bg-primary`}
+                  className={`absolute left-0 bottom-0 h-0.5 transition-all duration-300 ease-out ${pathname === item.href ? 'w-full' : 'w-0 group-hover:w-full'
+                    } bg-primary`}
                 />
               </Link>
             ))}
@@ -77,8 +76,8 @@ export function Header() {
             <Link
               href="/book"
               className={`px-4 py-2 flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-all duration-500 ${scrolled
-                  ? cn(buttonVariants({ variant: "default" }))
-                  : 'bg-primary/20 text-primary-foreground backdrop-blur-sm border border-primary/30 hover:bg-primary/30'
+                ? cn(buttonVariants({ variant: "default" }))
+                : 'bg-primary/20 text-primary-foreground backdrop-blur-sm border border-primary/30 hover:bg-primary/30'
                 }`}
             >
               <Calendar className="w-4 h-4" />
