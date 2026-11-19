@@ -282,26 +282,22 @@ export default function About() {
               </p>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Dr. Aditi Mathur is a counselling psychologist and educator
-                  with a deep commitment to supporting individuals in their
-                  personal and career journeys.
+                  Dr. Aditi Mathur is a qualified Counselling Psychologist,
+                  certified Cognitive Behavioral Therapist and an educator with
+                  a deep commitment to supporting individuals in their personal
+                  and professionals journeys.
                 </p>
                 <p>
-                  She holds a Master&apos;s degree in Counselling and Guidance
-                  (Psychology) and has extensive experience teaching Human
-                  Resource Development to MBA students in a government academic
-                  institution. Through years of interaction with young adults
-                  and professionals, she has developed a strong understanding of
-                  the emotional, academic, and career-related challenges people
-                  face today.
+                  Besides her masters and doctorate degree in HRD, she has
+                  extensive and counseling experience of more than 25 years to
+                  the students in government academic institutions and private
+                  organisations.
                 </p>
                 <p>
-                  Her counselling approach combines psychological understanding,
-                  empathy, and practical guidance to help individuals gain
-                  clarity, confidence, and emotional balance. She believes that
-                  counselling is not only about solving problems but also about
-                  helping people understand themselves, discover their
-                  strengths, and move forward with purpose.
+                  Her personal and professional counselling approach combines
+                  psychological understanding, empathy, and practical guidance
+                  to help individuals gain clarity, confidence, and emotional
+                  balance.
                 </p>
               </div>
 
