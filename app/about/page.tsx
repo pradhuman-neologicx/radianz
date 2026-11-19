@@ -162,22 +162,22 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Dr. Aditi Mathur is a qualified Counselling Psychologist,
-                  certified Cognitive Behavioral Therapist and an educator with
-                  a deep commitment to supporting individuals in their personal
-                  and professionals journeys.
+                  Founded by a qualified counselling psychologist with an MA in
+                  Counselling and Guidance and extensive experience in teaching
+                  Human Resource Development to postgraduate management
+                  students, our approach combines psychological insight,
+                  educational understanding, and practical life guidance.
                 </p>
                 <p>
-                  Besides her masters and doctorate degree in HRD, she has
-                  extensive and counseling experience of more than 25 years to
-                  the students in government academic institutions and private
-                  organisations.
+                  With years of experience working closely with young adults and
+                  professionals, we understand the complex pressures of modern
+                  life — career uncertainty, emotional stress, relationship
+                  challenges, and decision-making dilemmas.
                 </p>
                 <p>
-                  Her personal and professional counselling approach combines
-                  psychological understanding, empathy, and practical guidance
-                  to help individuals gain clarity, confidence, and emotional
-                  balance.
+                  Our counselling services provide a safe, confidential, and
+                  non-judgmental space where individuals can openly explore
+                  their thoughts and feelings.
                 </p>
               </div>
 
