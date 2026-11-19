@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import { motion, Variants } from 'framer-motion'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { PageHeader } from '@/components/page-header'
-import { CtaBanner } from '@/components/cta-banner'
-import Image from 'next/image'
-import Link from 'next/link'
+import { motion, Variants } from "framer-motion";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { PageHeader } from "@/components/page-header";
+import { CtaBanner } from "@/components/cta-banner";
+import Image from "next/image";
+import Link from "next/link";
 import {
   Heart,
   Users,
@@ -24,7 +24,7 @@ import {
   ArrowRight,
   BookOpen,
   Award,
-} from 'lucide-react'
+} from "lucide-react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -35,63 +35,63 @@ const containerVariants: Variants = {
       delayChildren: 0.2,
     },
   },
-}
+};
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: 0.7, ease: "easeOut" },
   },
-}
+};
 
 export default function About() {
   const approach = [
     {
       icon: Ear,
-      title: 'Active Listening & Empathy',
-      desc: 'We create a space where you feel truly heard and understood without judgment.',
+      title: "Active Listening & Empathy",
+      desc: "We create a space where you feel truly heard and understood without judgment.",
     },
     {
       icon: Brain,
-      title: 'Evidence-Based Techniques',
-      desc: 'Our methods are grounded in proven psychological research and practices.',
+      title: "Evidence-Based Techniques",
+      desc: "Our methods are grounded in proven psychological research and practices.",
     },
     {
       icon: Compass,
-      title: 'Tailored Guidance',
-      desc: 'Career and life guidance customized to your unique needs and goals.',
+      title: "Tailored Guidance",
+      desc: "Career and life guidance customized to your unique needs and goals.",
     },
     {
       icon: Shield,
-      title: 'Safe & Confidential',
-      desc: 'A supportive, confidential environment where you can openly express yourself.',
+      title: "Safe & Confidential",
+      desc: "A supportive, confidential environment where you can openly express yourself.",
     },
-  ]
+  ];
 
   const whoCanBenefit = [
     {
       icon: GraduationCap,
-      title: 'Students',
-      desc: 'Facing career confusion or academic stress and needing clarity on the path ahead.',
+      title: "Students",
+      desc: "Facing career confusion or academic stress and needing clarity on the path ahead.",
     },
     {
       icon: Sparkles,
-      title: 'Young Adults',
-      desc: 'Navigating life decisions, personal challenges, and the transition to adulthood.',
+      title: "Young Adults",
+      desc: "Navigating life decisions, personal challenges, and the transition to adulthood.",
     },
     {
       icon: Briefcase,
-      title: 'Professionals',
-      desc: 'Dealing with work stress, career transitions, or seeking work-life balance.',
+      title: "Professionals",
+      desc: "Dealing with work stress, career transitions, or seeking work-life balance.",
     },
     {
       icon: UserCircle,
-      title: 'Individuals',
-      desc: 'Seeking emotional clarity, personal growth, and a deeper understanding of self.',
+      title: "Individuals",
+      desc: "Seeking emotional clarity, personal growth, and a deeper understanding of self.",
     },
-  ]
+  ];
 
   return (
     <main className="min-h-screen bg-background">
@@ -115,7 +115,7 @@ export default function About() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: "-100px" }}
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl">
@@ -137,7 +137,9 @@ export default function About() {
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-foreground">100+</p>
-                    <p className="text-sm text-muted-foreground">Lives Supported</p>
+                    <p className="text-sm text-muted-foreground">
+                      Lives Supported
+                    </p>
                   </div>
                 </div>
               </div>
@@ -148,45 +150,50 @@ export default function About() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                 Who We Are
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Supporting your journey toward{' '}
+                Supporting your journey toward{" "}
                 <span className="text-primary">clarity & confidence</span>
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Founded by a qualified counselling psychologist with an MA in Counselling and Guidance
-                  and extensive experience in teaching Human Resource Development to postgraduate management
-                  students, our approach combines psychological insight, educational understanding, and
-                  practical life guidance.
+                  Dr. Aditi Mathur is a qualified Counselling Psychologist,
+                  certified Cognitive Behavioral Therapist and an educator with
+                  a deep commitment to supporting individuals in their personal
+                  and professionals journeys.
                 </p>
                 <p>
-                  With years of experience working closely with young adults and professionals, we understand
-                  the complex pressures of modern life — career uncertainty, emotional stress, relationship
-                  challenges, and decision-making dilemmas.
+                  Besides her masters and doctorate degree in HRD, she has
+                  extensive and counseling experience of more than 25 years to
+                  the students in government academic institutions and private
+                  organisations.
                 </p>
                 <p>
-                  Our counselling services provide a safe, confidential, and non-judgmental space where
-                  individuals can openly explore their thoughts and feelings.
+                  Her personal and professional counselling approach combines
+                  psychological understanding, empathy, and practical guidance
+                  to help individuals gain clarity, confidence, and emotional
+                  balance.
                 </p>
               </div>
 
               {/* Key Points */}
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  'Qualified Counselling Psychologist',
-                  'Evidence-Based Approach',
-                  'Online & In-Person Sessions',
-                  'Confidential Environment',
+                  "Qualified Counselling Psychologist",
+                  "Evidence-Based Approach",
+                  "Online & In-Person Sessions",
+                  "Confidential Environment",
                 ].map((point, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                    <span className="text-sm font-medium text-foreground">{point}</span>
+                    <span className="text-sm font-medium text-foreground">
+                      {point}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -202,7 +209,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-3">
@@ -213,8 +220,9 @@ export default function About() {
               How we <span className="text-primary">help you</span> grow
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              We believe that every individual has the potential to grow when provided with
-              the right support. Our counselling process focuses on:
+              We believe that every individual has the potential to grow when
+              provided with the right support. Our counselling process focuses
+              on:
             </p>
           </motion.div>
 
@@ -222,11 +230,11 @@ export default function About() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {approach.map((item, index) => {
-              const Icon = item.icon
+              const Icon = item.icon;
               return (
                 <motion.div
                   key={index}
@@ -239,9 +247,11 @@ export default function About() {
                   <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.desc}
+                  </p>
                 </motion.div>
-              )
+              );
             })}
           </motion.div>
         </div>
@@ -257,7 +267,7 @@ export default function About() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: "-100px" }}
               className="lg:col-span-3 order-2 lg:order-1"
             >
               <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-4">
@@ -272,30 +282,35 @@ export default function About() {
               </p>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Dr. Aditi Mathur is a counselling psychologist and educator with a deep commitment to
-                  supporting individuals in their personal and career journeys.
+                  Dr. Aditi Mathur is a counselling psychologist and educator
+                  with a deep commitment to supporting individuals in their
+                  personal and career journeys.
                 </p>
                 <p>
-                  She holds a Master&apos;s degree in Counselling and Guidance (Psychology) and has extensive
-                  experience teaching Human Resource Development to MBA students in a government academic
-                  institution. Through years of interaction with young adults and professionals, she has
-                  developed a strong understanding of the emotional, academic, and career-related challenges
-                  people face today.
+                  She holds a Master&apos;s degree in Counselling and Guidance
+                  (Psychology) and has extensive experience teaching Human
+                  Resource Development to MBA students in a government academic
+                  institution. Through years of interaction with young adults
+                  and professionals, she has developed a strong understanding of
+                  the emotional, academic, and career-related challenges people
+                  face today.
                 </p>
                 <p>
-                  Her counselling approach combines psychological understanding, empathy, and practical guidance
-                  to help individuals gain clarity, confidence, and emotional balance. She believes that
-                  counselling is not only about solving problems but also about helping people understand
-                  themselves, discover their strengths, and move forward with purpose.
+                  Her counselling approach combines psychological understanding,
+                  empathy, and practical guidance to help individuals gain
+                  clarity, confidence, and emotional balance. She believes that
+                  counselling is not only about solving problems but also about
+                  helping people understand themselves, discover their
+                  strengths, and move forward with purpose.
                 </p>
               </div>
 
               {/* Credentials */}
               <div className="mt-8 flex flex-wrap gap-3">
                 {[
-                  'MA in Counselling & Guidance',
-                  'HRD Educator',
-                  'Counselling Psychologist',
+                  "MA in Counselling & Guidance",
+                  "HRD Educator",
+                  "Counselling Psychologist",
                 ].map((cred, i) => (
                   <span
                     key={i}
@@ -313,7 +328,7 @@ export default function About() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: "-100px" }}
               className="lg:col-span-2 order-1 lg:order-2"
             >
               <div className="relative max-w-sm mx-auto">
@@ -342,7 +357,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-3">
@@ -353,8 +368,9 @@ export default function About() {
               Our counselling is <span className="text-primary">for you</span>
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              Whether you&apos;re a student, a young adult, or a working professional — if you&apos;re
-              looking for clarity, support, and growth, you&apos;re welcome here.
+              Whether you&apos;re a student, a young adult, or a working
+              professional — if you&apos;re looking for clarity, support, and
+              growth, you&apos;re welcome here.
             </p>
           </motion.div>
 
@@ -362,11 +378,11 @@ export default function About() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {whoCanBenefit.map((item, index) => {
-              const Icon = item.icon
+              const Icon = item.icon;
               return (
                 <motion.div
                   key={index}
@@ -375,20 +391,25 @@ export default function About() {
                 >
                   {/* Background number */}
                   <span className="absolute -bottom-4 -right-2 text-[100px] font-black text-primary/[0.04] leading-none select-none pointer-events-none">
-                    {String(index + 1).padStart(2, '0')}
+                    {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <div className="relative z-10">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-6 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300">
-                      <Icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                      <Icon
+                        className="w-7 h-7 text-primary"
+                        strokeWidth={1.5}
+                      />
                     </div>
                     <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 </motion.div>
-              )
+              );
             })}
           </motion.div>
         </div>
@@ -402,7 +423,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-widest uppercase mb-3">
@@ -420,7 +441,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: "-100px" }}
               className="group relative bg-white rounded-3xl p-10 border border-border/40 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
             >
               {/* Decorative gradient */}
@@ -430,17 +451,21 @@ export default function About() {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                   <Target className="w-7 h-7 text-primary" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  Our Mission
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To help people develop self-awareness, resilience, and clarity, enabling them to
-                  make meaningful decisions and lead more balanced lives. Through both online and
-                  in-person counselling sessions, we aim to make psychological support accessible,
-                  practical, and meaningful.
+                  To help people develop self-awareness, resilience, and
+                  clarity, enabling them to make meaningful decisions and lead
+                  more balanced lives. Through both online and in-person
+                  counselling sessions, we aim to make psychological support
+                  accessible, practical, and meaningful.
                 </p>
                 <div className="mt-6 pt-6 border-t border-border/30">
                   <p className="text-sm font-medium text-foreground/80 italic">
-                    &ldquo;Our goal is simple: to help individuals understand themselves better and
-                    move forward with confidence and emotional well-being.&rdquo;
+                    &ldquo;Our goal is simple: to help individuals understand
+                    themselves better and move forward with confidence and
+                    emotional well-being.&rdquo;
                   </p>
                 </div>
               </div>
@@ -451,7 +476,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: "-100px" }}
               className="group relative bg-white rounded-3xl p-10 border border-border/40 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
             >
               {/* Decorative gradient */}
@@ -461,15 +486,20 @@ export default function About() {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                   <Eye className="w-7 h-7 text-primary" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  Our Vision
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To create a trusted counselling space where individuals feel supported, understood,
-                  and empowered to grow. We aim to promote mental well-being, self-awareness, and
-                  informed life decisions, helping people lead more balanced and fulfilling lives.
+                  To create a trusted counselling space where individuals feel
+                  supported, understood, and empowered to grow. We aim to
+                  promote mental well-being, self-awareness, and informed life
+                  decisions, helping people lead more balanced and fulfilling
+                  lives.
                 </p>
                 <div className="mt-6 pt-6 border-t border-border/30">
                   <p className="text-sm font-medium text-foreground/80 italic">
-                    &ldquo;Sometimes, the first step toward change is simply having a conversation.&rdquo;
+                    &ldquo;Sometimes, the first step toward change is simply
+                    having a conversation.&rdquo;
                   </p>
                 </div>
               </div>
@@ -483,5 +513,5 @@ export default function About() {
 
       <Footer />
     </main>
-  )
+  );
 }
